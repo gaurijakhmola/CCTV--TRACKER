@@ -6,7 +6,7 @@ const stations = require('./stationsData');
 
 const JWT_SECRET = 'your_very_strong_secret_here'; // For production: change this to a real secret!
 
-const app = express();
+const app = express();//commit
 app.use(cors());
 app.use(express.json());
 
@@ -316,7 +316,8 @@ app.post('/api/approve-resolve', authenticateJWT, (req, res) => { res.json({ suc
 app.post('/api/send-message', authenticateJWT, (req, res) => { res.json({ success: true }); });
 
 // --- Server start ---
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log('Sample data initialized:');
